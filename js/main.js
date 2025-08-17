@@ -80,12 +80,6 @@
             anchor.addEventListener('click', smoothScroll);
         });
 
-        // Refresh button
-        const refreshBtn = document.getElementById('refreshBtn');
-        if (refreshBtn) {
-            refreshBtn.addEventListener('click', refreshGame);
-        }
-
         // Next tip button
         if (elements.nextTipBtn) {
             elements.nextTipBtn.addEventListener('click', showNextTip);
@@ -212,24 +206,6 @@
                 element.classList.add('animate-fadeInUp', 'revealed');
             }
         });
-    }
-
-    // Refresh Game
-    function refreshGame() {
-        const gameFrame = document.getElementById('gameFrame');
-        if (gameFrame) {
-            // Add loading state
-            gameFrame.classList.add('hidden');
-            document.getElementById('gameLoading')?.classList.remove('hidden');
-            
-            // Reload iframe
-            const currentSrc = gameFrame.src;
-            gameFrame.src = '';
-            
-            setTimeout(() => {
-                gameFrame.src = currentSrc;
-            }, 100);
-        }
     }
 
     // Check Notification Permission

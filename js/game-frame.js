@@ -24,6 +24,7 @@
     const gameContainer = document.getElementById('gameContainer');
     const gameLoading = document.getElementById('gameLoading');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const playDailyBtn = document.getElementById('playDailyBtn');
 
     // Initialize
     function init() {
@@ -40,6 +41,9 @@
     function setupEventListeners() {
         // Fullscreen button
         fullscreenBtn?.addEventListener('click', toggleFullscreen);
+        
+        // Play Daily Hole button (also triggers fullscreen)
+        playDailyBtn?.addEventListener('click', toggleFullscreen);
 
         // Fullscreen change events
         document.addEventListener('fullscreenchange', handleFullscreenChange);
