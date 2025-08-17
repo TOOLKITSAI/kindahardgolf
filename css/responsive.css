@@ -75,7 +75,7 @@
     }
     
     .game-iframe {
-        height: 800px; /* Further increased to ensure all game buttons are visible */
+        height: 50vh; /* 50% viewport height for tablets */
         max-height: none; /* Remove height limit to show full game */
     }
     
@@ -188,9 +188,9 @@
     }
     
     .game-iframe {
-        height: 750px; /* Significantly increased to show full game with buttons */
+        height: 50vh; /* 50% viewport height for mobile to show buttons */
         max-height: none; /* Remove limit to ensure buttons are visible */
-        min-height: 700px; /* Ensure minimum height for game controls */
+        min-height: 300px; /* Minimum height for game controls */
     }
     
     /* Allow scrolling for game content */
@@ -203,7 +203,7 @@
     }
     
     .loading {
-        min-height: 700px;
+        min-height: 50vh;
         max-height: none;
     }
     
@@ -308,9 +308,9 @@
     }
     
     .game-iframe {
-        height: 700px; /* Much higher to ensure buttons are visible on small screens */
+        height: 50vh; /* 50% viewport height for small screens */
         max-height: none; /* Remove viewport limit */
-        min-height: 650px; /* Minimum height for game functionality */
+        min-height: 300px; /* Minimum height for game functionality */
     }
     
     .game-container {
@@ -339,9 +339,9 @@
     }
     
     .game-iframe {
-        height: 600px; /* Increased for landscape mode */
+        height: 50vh; /* 50% viewport height for landscape mode */
         max-height: none; /* Allow full height in landscape */
-        min-height: 550px;
+        min-height: 300px;
     }
     
     .game-container {
