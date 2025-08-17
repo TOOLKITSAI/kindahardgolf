@@ -751,28 +751,7 @@ a:hover {
     font-size: 1.1em;
 }
 
-/* Mobile Scroll Hint */
-.mobile-scroll-hint {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    animation: bounce 2s infinite;
-    z-index: 10;
-    pointer-events: none;
-}
-
 @media screen and (max-width: 768px) {
-    .mobile-scroll-hint {
-        display: block;
-    }
-    
     .game-container {
         position: relative;
     }

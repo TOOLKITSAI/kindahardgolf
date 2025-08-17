@@ -412,30 +412,6 @@
         const isMobile = window.innerWidth <= 768;
         if (!isMobile) return;
 
-        // Handle scroll hint
-        const scrollHint = document.getElementById('mobileScrollHint');
-        if (scrollHint && gameContainer) {
-            let hasScrolled = false;
-            
-            // Hide hint after user scrolls
-            gameContainer.addEventListener('scroll', () => {
-                if (!hasScrolled && gameContainer.scrollTop > 50) {
-                    hasScrolled = true;
-                    scrollHint.style.display = 'none';
-                }
-            });
-            
-            // Also hide after 5 seconds
-            setTimeout(() => {
-                if (scrollHint) {
-                    scrollHint.style.opacity = '0';
-                    setTimeout(() => {
-                        scrollHint.style.display = 'none';
-                    }, 500);
-                }
-            }, 5000);
-        }
-
         // Add "Open in Full Screen" prompt for better mobile experience
         if (fullscreenBtn && gameContainer) {
             // Show a more prominent fullscreen suggestion on mobile
