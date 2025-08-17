@@ -277,6 +277,14 @@ a:hover {
     position: relative;
 }
 
+/* Mobile-specific game container adjustments */
+@media screen and (max-width: 768px) {
+    .game-container {
+        overflow-y: auto; /* Allow vertical scrolling if needed */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+}
+
 .game-controls {
     display: flex;
     gap: 1rem;

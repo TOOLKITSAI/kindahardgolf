@@ -75,7 +75,8 @@
     }
     
     .game-iframe {
-        height: 500px;
+        height: 650px; /* Increased to ensure all game buttons are visible */
+        max-height: 85vh; /* Responsive to viewport height */
     }
     
     /* Info Cards */
@@ -179,11 +180,13 @@
     }
     
     .game-iframe {
-        height: 400px;
+        height: 600px; /* Increased to show full game interface including buttons */
+        max-height: 80vh; /* Limit to viewport height on very small screens */
     }
     
     .loading {
-        min-height: 400px;
+        min-height: 600px;
+        max-height: 80vh;
     }
     
     /* Buttons */
@@ -287,7 +290,8 @@
     }
     
     .game-iframe {
-        height: 350px;
+        height: 550px; /* Increased height for small screens to show all game elements */
+        max-height: 75vh; /* Responsive to small viewport heights */
     }
     
     .feature-card {
@@ -310,7 +314,8 @@
     }
     
     .game-iframe {
-        height: 400px;
+        height: 500px; /* Slightly increased for landscape mode */
+        max-height: 90vh; /* Use most of viewport in landscape */
     }
     
     .features {
