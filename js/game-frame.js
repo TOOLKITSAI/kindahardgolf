@@ -33,6 +33,7 @@
         loadGame();
         setupMessageListener();
         detectFullscreenSupport();
+        setupMobileEnhancements();
     }
 
     // Setup Event Listeners
@@ -222,15 +223,34 @@
         if (!gameFrame) return;
         
         const container = gameContainer;
-        const aspectRatio = 16 / 9; // Desired aspect ratio
+        const isMobile = window.innerWidth <= 768;
+        const isSmallMobile = window.innerWidth <= 480;
         
         if (isFullscreen) {
             // Full viewport in fullscreen
             gameFrame.style.height = '100vh';
+        } else if (isMobile) {
+            // Mobile devices need extra height for game buttons
+            let mobileHeight;
+            if (isSmallMobile) {
+                // Small phones need at least 700px to show buttons
+                mobileHeight = Math.max(700, window.innerHeight * 0.9);
+            } else {
+                // Tablets and larger phones
+                mobileHeight = Math.max(750, window.innerHeight * 0.85);
+            }
+            gameFrame.style.height = `${mobileHeight}px`;
+            
+            // Ensure the iframe content is accessible
+            gameFrame.style.minHeight = '700px';
+            
+            // Log for debugging
+            console.log(`Mobile iframe height set to: ${mobileHeight}px`);
         } else {
-            // Responsive sizing
+            // Desktop: responsive sizing with aspect ratio
             const width = container.offsetWidth;
-            const maxHeight = window.innerHeight * 0.7; // Max 70% of viewport height
+            const aspectRatio = 16 / 9;
+            const maxHeight = window.innerHeight * 0.8;
             const calculatedHeight = width / aspectRatio;
             const finalHeight = Math.min(calculatedHeight, maxHeight);
             
@@ -385,6 +405,60 @@
             const img = new Image();
             img.src = src;
         });
+    }
+
+    // Setup Mobile Enhancements
+    function setupMobileEnhancements() {
+        const isMobile = window.innerWidth <= 768;
+        if (!isMobile) return;
+
+        // Handle scroll hint
+        const scrollHint = document.getElementById('mobileScrollHint');
+        if (scrollHint && gameContainer) {
+            let hasScrolled = false;
+            
+            // Hide hint after user scrolls
+            gameContainer.addEventListener('scroll', () => {
+                if (!hasScrolled && gameContainer.scrollTop > 50) {
+                    hasScrolled = true;
+                    scrollHint.style.display = 'none';
+                }
+            });
+            
+            // Also hide after 5 seconds
+            setTimeout(() => {
+                if (scrollHint) {
+                    scrollHint.style.opacity = '0';
+                    setTimeout(() => {
+                        scrollHint.style.display = 'none';
+                    }, 500);
+                }
+            }, 5000);
+        }
+
+        // Add "Open in Full Screen" prompt for better mobile experience
+        if (fullscreenBtn && gameContainer) {
+            // Show a more prominent fullscreen suggestion on mobile
+            const promptFullscreen = () => {
+                const prompt = document.createElement('div');
+                prompt.className = 'mobile-fullscreen-prompt';
+                prompt.innerHTML = `
+                    <div style="background: #4CAF50; color: white; padding: 10px; border-radius: 8px; margin: 10px; text-align: center;">
+                        📱 Tip: Tap "Fullscreen" for the best mobile experience!
+                    </div>
+                `;
+                gameContainer.insertBefore(prompt, gameContainer.firstChild);
+                
+                // Remove prompt after 5 seconds
+                setTimeout(() => {
+                    prompt.style.opacity = '0';
+                    setTimeout(() => prompt.remove(), 500);
+                }, 5000);
+            };
+            
+            // Show prompt after game loads
+            setTimeout(promptFullscreen, 2000);
+        }
     }
 
     // Add custom styles for fullscreen fallback

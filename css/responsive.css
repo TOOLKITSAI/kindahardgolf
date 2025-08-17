@@ -75,8 +75,16 @@
     }
     
     .game-iframe {
-        height: 650px; /* Increased to ensure all game buttons are visible */
-        max-height: 85vh; /* Responsive to viewport height */
+        height: 800px; /* Further increased to ensure all game buttons are visible */
+        max-height: none; /* Remove height limit to show full game */
+    }
+    
+    /* Allow scrolling within game container on mobile */
+    .game-container {
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
     }
     
     /* Info Cards */
@@ -180,13 +188,23 @@
     }
     
     .game-iframe {
-        height: 600px; /* Increased to show full game interface including buttons */
-        max-height: 80vh; /* Limit to viewport height on very small screens */
+        height: 750px; /* Significantly increased to show full game with buttons */
+        max-height: none; /* Remove limit to ensure buttons are visible */
+        min-height: 700px; /* Ensure minimum height for game controls */
+    }
+    
+    /* Allow scrolling for game content */
+    .game-container {
+        max-height: 85vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        position: relative;
     }
     
     .loading {
-        min-height: 600px;
-        max-height: 80vh;
+        min-height: 700px;
+        max-height: none;
     }
     
     /* Buttons */
@@ -290,8 +308,15 @@
     }
     
     .game-iframe {
-        height: 550px; /* Increased height for small screens to show all game elements */
-        max-height: 75vh; /* Responsive to small viewport heights */
+        height: 700px; /* Much higher to ensure buttons are visible on small screens */
+        max-height: none; /* Remove viewport limit */
+        min-height: 650px; /* Minimum height for game functionality */
+    }
+    
+    .game-container {
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .feature-card {
@@ -314,8 +339,15 @@
     }
     
     .game-iframe {
-        height: 500px; /* Slightly increased for landscape mode */
-        max-height: 90vh; /* Use most of viewport in landscape */
+        height: 600px; /* Increased for landscape mode */
+        max-height: none; /* Allow full height in landscape */
+        min-height: 550px;
+    }
+    
+    .game-container {
+        max-height: 95vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .features {
