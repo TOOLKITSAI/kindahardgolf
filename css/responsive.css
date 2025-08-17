@@ -182,6 +182,16 @@
         justify-content: center;
     }
     
+    .game-controls .btn-cta-play {
+        background: linear-gradient(135deg, #FF6B6B, #FF8E53) !important;
+        color: white !important;
+        font-size: 1.125rem !important;
+        font-weight: 700 !important;
+        padding: 0.875rem 2rem !important;
+        animation: ctaPulse 2s infinite !important;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+    }
+    
     .game-container {
         border-radius: var(--radius-lg);
         margin-bottom: 2rem;
@@ -420,6 +430,19 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* CTA Button Pulse Animation */
+@keyframes ctaPulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 107, 107, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
     }
 }
 
