@@ -222,29 +222,12 @@
     function adjustFrameSize() {
         if (!gameFrame) return;
         
-        const container = gameContainer;
-        const isMobile = window.innerWidth <= 768;
-        const isSmallMobile = window.innerWidth <= 480;
-        
         if (isFullscreen) {
             // Full viewport in fullscreen
             gameFrame.style.height = '100vh';
-        } else if (isMobile) {
-            // Mobile devices use 50% viewport height to show game buttons
-            gameFrame.style.height = '50vh';
-            gameFrame.style.minHeight = '300px';
-            
-            // Log for debugging
-            console.log('Mobile iframe height set to: 50vh');
         } else {
-            // Desktop: responsive sizing with aspect ratio
-            const width = container.offsetWidth;
-            const aspectRatio = 16 / 9;
-            const maxHeight = window.innerHeight * 0.8;
-            const calculatedHeight = width / aspectRatio;
-            const finalHeight = Math.min(calculatedHeight, maxHeight);
-            
-            gameFrame.style.height = `${finalHeight}px`;
+            // Let CSS handle the height for all non-fullscreen modes
+            gameFrame.style.height = '';
         }
     }
 
