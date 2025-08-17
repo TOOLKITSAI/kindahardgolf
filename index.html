@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>Kinda Hard Golf - Daily Physics Golf Puzzle | Simple to Learn, Kinda Hard to Master</title>
     <meta name="description" content="Play Kinda Hard Golf - the daily physics golf puzzle that's simple to learn but kinda hard to master. Join 50K+ players! Drag to aim, release to shoot. New level daily. 100% free browser game by James O'Halloran.">
     <meta name="keywords" content="kinda hard golf, daily physics golf puzzle, James O'Halloran, Mighty Pebble Games, simple to learn kinda hard to master, productive failure game, exaggerated physics golf, drag to aim golf game">
@@ -25,15 +31,40 @@
     <link rel="icon" href="./favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     
-    <!-- Fonts -->
+    <!-- Preconnect and DNS-prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://kindahardgolf.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://kindahardgolf.com">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/animations.css">
+    <!-- Fonts - Load with font-display swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Fallback font loading -->
+    <style>
+        @font-face {
+            font-family: 'Quicksand';
+            font-display: swap;
+            src: local('Quicksand'), local('Quicksand-Regular');
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            font-display: swap;
+            src: local('Open Sans'), local('OpenSans-Regular');
+        }
+    </style>
+    
+    <!-- Styles - Load asynchronously except critical -->
+    <link rel="preload" as="style" href="./css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="./css/responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="./css/animations.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/responsive.css">
+        <link rel="stylesheet" href="./css/animations.css">
+    </noscript>
     
     <!-- Inline styles for CTA button animation -->
     <style>
@@ -56,58 +87,8 @@
         }
     </style>
     
-    <!-- Critical CSS (Inline for performance) -->
-    <style>
-        :root {
-            --primary-color: #4CAF50;
-            --primary-light: #81C784;
-            --primary-dark: #2E7D32;
-            --accent-color: #FF6B6B;
-            --bg-color: #3085D4;
-            --bg-main: #3085D4;
-            --bg-footer: #16A34A;
-            --text-primary: #2C3E50;
-            --text-secondary: #7F8C8D;
-            --white: #FFFFFF;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background: #3085D4;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        .hero-stats {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-top: 1rem;
-        }
-    </style>
+    <!-- Critical CSS (Minified for performance) -->
+    <style>:root{--primary-color:#4CAF50;--bg-main:#3085D4;--white:#FFF;--text-primary:#2C3E50}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Open Sans',sans-serif;background:#3085D4;color:#2C3E50;line-height:1.6}html{scroll-behavior:smooth}.container{max-width:1200px;margin:0 auto;padding:0 20px}.navbar{background:#FFF;padding:1rem 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 4px rgba(0,0,0,.1)}.nav-container{display:flex;justify-content:space-between;align-items:center}.hero{background:#3085D4;color:#FFF;padding:4rem 0 3rem;text-align:center}.hero-title{font-size:3rem;font-weight:700;margin-bottom:1rem;font-family:'Quicksand',sans-serif}.loading{display:flex;justify-content:center;align-items:center;min-height:400px}.spinner{width:50px;height:50px;border:5px solid rgba(255,255,255,.3);border-top-color:#FFF;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.hidden{display:none!important}.game-section{padding:2rem 0;background:#3085D4}.game-container{background:#FFF;border-radius:12px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,.1)}.game-iframe{width:100%;height:700px;border:none;display:block}@media(max-width:768px){.hero-title{font-size:2rem}.game-iframe{height:50vh!important}}</style>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -420,13 +401,14 @@
                     </div>
                     <iframe 
                         id="gameFrame"
-                        src="https://kindahardgolf.com" 
+                        data-src="https://kindahardgolf.com" 
                         title="Kinda Hard Golf Game"
                         width="100%" 
                         frameborder="0"
                         allowfullscreen
-                        loading="eager"
-                        class="game-iframe hidden">
+                        loading="lazy"
+                        class="game-iframe hidden"
+                        importance="low">
                     </iframe>
                 </div>
                 
@@ -599,12 +581,13 @@
                             <div class="video-item">
                                 <div class="video-wrapper">
                                     <iframe 
-                                        src="https://www.youtube.com/embed/B20nCy01dsk"
+                                        data-src="https://www.youtube.com/embed/B20nCy01dsk"
                                         title="Kinda Hard Golf - Pro Strategy #1"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen
-                                        loading="lazy">
+                                        loading="lazy"
+                                        srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img{position:absolute;width:100%;top:0;bottom:0;margin:auto}.btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(0,0,0,.8);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}.btn svg{width:36px;height:36px;fill:#fff}</style><img src='https://img.youtube.com/vi/B20nCy01dsk/hqdefault.jpg' alt='Video'><div class='btn' onclick='var iframe=document.createElement(&quot;iframe&quot;);iframe.setAttribute(&quot;src&quot;,&quot;https://www.youtube.com/embed/B20nCy01dsk?autoplay=1&quot;);iframe.style.width=&quot;100%&quot;;iframe.style.height=&quot;100%&quot;;iframe.setAttribute(&quot;frameborder&quot;,&quot;0&quot;);iframe.setAttribute(&quot;allowfullscreen&quot;,&quot;&quot;);iframe.setAttribute(&quot;allow&quot;,&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;);this.parentNode.replaceChild(iframe,this.parentNode.firstChild);'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M8 5v14l11-7z'/></svg></div>">
                                     </iframe>
                                 </div>
                                 <p class="video-caption">Daily Challenge Solution</p>
@@ -614,12 +597,13 @@
                             <div class="video-item">
                                 <div class="video-wrapper">
                                     <iframe 
-                                        src="https://www.youtube.com/embed/Nqm2Q1UfF5s"
+                                        data-src="https://www.youtube.com/embed/Nqm2Q1UfF5s"
                                         title="Kinda Hard Golf - Pro Strategy #2"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen
-                                        loading="lazy">
+                                        loading="lazy"
+                                        srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img{position:absolute;width:100%;top:0;bottom:0;margin:auto}.btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(0,0,0,.8);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}.btn svg{width:36px;height:36px;fill:#fff}</style><img src='https://img.youtube.com/vi/Nqm2Q1UfF5s/hqdefault.jpg' alt='Video'><div class='btn' onclick='var iframe=document.createElement(&quot;iframe&quot;);iframe.setAttribute(&quot;src&quot;,&quot;https://www.youtube.com/embed/Nqm2Q1UfF5s?autoplay=1&quot;);iframe.style.width=&quot;100%&quot;;iframe.style.height=&quot;100%&quot;;iframe.setAttribute(&quot;frameborder&quot;,&quot;0&quot;);iframe.setAttribute(&quot;allowfullscreen&quot;,&quot;&quot;);iframe.setAttribute(&quot;allow&quot;,&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;);this.parentNode.replaceChild(iframe,this.parentNode.firstChild);'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M8 5v14l11-7z'/></svg></div>">
                                     </iframe>
                                 </div>
                                 <p class="video-caption">Advanced Techniques</p>
@@ -792,5 +776,20 @@
     <script src="./js/main.js" defer></script>
     <script src="./js/game-frame.js" defer></script>
     <script src="./js/share.js" defer></script>
+    
+    <!-- Async CSS loading helper -->
+    <script>
+        /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+        !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(function(){t.media=e},0)},!o.support()){var t,d=n.document.getElementsByTagName("link");for(var i=0;i<d.length;i++)"preload"!==d[i].rel||"style"!==d[i].getAttribute("as")||d[i].getAttribute("data-loadcss")||(d[i].setAttribute("data-loadcss",!0),o.bindMediaToggle(d[i]))}}(this);
+        
+        // Register Service Worker for offline support and caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>

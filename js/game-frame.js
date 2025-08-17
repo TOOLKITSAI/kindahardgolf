@@ -34,7 +34,22 @@
         if (!gameFrame) return;
 
         setupEventListeners();
-        loadGame();
+        // Delay game loading to improve initial page performance
+        if ('IntersectionObserver' in window) {
+            // Load when iframe is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadGame();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(gameFrame);
+        } else {
+            // Fallback: load after a short delay
+            setTimeout(loadGame, 1000);
+        }
         setupMessageListener();
         detectFullscreenSupport();
         setupMobileEnhancements();
@@ -90,8 +105,9 @@
             }
         }, config.loadTimeout);
 
-        // Set iframe source
-        gameFrame.src = config.gameUrl;
+        // Set iframe source from data-src if available, otherwise use config
+        const dataSrc = gameFrame.getAttribute('data-src');
+        gameFrame.src = dataSrc || config.gameUrl;
     }
 
     // Handle Frame Load
