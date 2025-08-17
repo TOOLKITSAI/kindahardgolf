@@ -41,6 +41,14 @@
 # Favicon
 /favicon.ico
   Cache-Control: public, max-age=86400
+  
+/kinda-hard-golf.webp
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/webp
+  
+/manifest.json
+  Cache-Control: public, max-age=3600
+  Content-Type: application/manifest+json
 
 # Security for specific paths
 /api/*

@@ -7,7 +7,9 @@ const urlsToCache = [
   '/css/animations.css',
   '/js/main.js',
   '/js/game-frame.js',
-  '/js/share.js'
+  '/js/share.js',
+  '/kinda-hard-golf.webp',
+  '/manifest.json'
 ];
 
 // Install event
