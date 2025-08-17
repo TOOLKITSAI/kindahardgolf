@@ -35,6 +35,27 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/animations.css">
     
+    <!-- Inline styles for CTA button animation -->
+    <style>
+        @keyframes ctaPulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(255, 107, 107, 0.5);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            }
+        }
+        
+        .btn-cta-play:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4) !important;
+            background: linear-gradient(135deg, #FF8E53, #FF6B6B) !important;
+        }
+    </style>
+    
     <!-- Critical CSS (Inline for performance) -->
     <style>
         :root {
@@ -411,8 +432,10 @@
                 
                 <!-- Game Controls -->
                 <div class="game-controls">
-                    <button class="btn btn-cta-play" id="playDailyBtn" aria-label="Play Daily Hole">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="btn btn-cta-play" id="playDailyBtn" aria-label="Play Daily Hole" 
+                            style="background: linear-gradient(135deg, #FF6B6B, #FF8E53) !important; color: white !important; font-weight: 700 !important; padding: 0.875rem 2rem !important; font-size: 1.125rem !important; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important; animation: ctaPulse 2s infinite !important; cursor: pointer !important;"
+                            onclick="document.getElementById('fullscreenBtn')?.click()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
                         Play Daily Hole

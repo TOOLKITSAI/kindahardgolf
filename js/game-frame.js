@@ -19,15 +19,18 @@
     let loadAttempts = 0;
     let loadTimer = null;
 
-    // DOM Elements
-    const gameFrame = document.getElementById('gameFrame');
-    const gameContainer = document.getElementById('gameContainer');
-    const gameLoading = document.getElementById('gameLoading');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const playDailyBtn = document.getElementById('playDailyBtn');
+    // DOM Elements (will be initialized in init)
+    let gameFrame, gameContainer, gameLoading, fullscreenBtn, playDailyBtn;
 
     // Initialize
     function init() {
+        // Get DOM elements after DOM is ready
+        gameFrame = document.getElementById('gameFrame');
+        gameContainer = document.getElementById('gameContainer');
+        gameLoading = document.getElementById('gameLoading');
+        fullscreenBtn = document.getElementById('fullscreenBtn');
+        playDailyBtn = document.getElementById('playDailyBtn');
+        
         if (!gameFrame) return;
 
         setupEventListeners();
@@ -43,7 +46,15 @@
         fullscreenBtn?.addEventListener('click', toggleFullscreen);
         
         // Play Daily Hole button (also triggers fullscreen)
-        playDailyBtn?.addEventListener('click', toggleFullscreen);
+        if (playDailyBtn) {
+            console.log('Play Daily Hole button found, adding event listener');
+            playDailyBtn.addEventListener('click', function(e) {
+                console.log('Play Daily Hole button clicked');
+                toggleFullscreen();
+            });
+        } else {
+            console.error('Play Daily Hole button not found');
+        }
 
         // Fullscreen change events
         document.addEventListener('fullscreenchange', handleFullscreenChange);
