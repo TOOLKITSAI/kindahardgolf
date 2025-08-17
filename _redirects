@@ -29,10 +29,14 @@
 /strategy          /daily-tips.html   301
 /strategies        /daily-tips.html   301
 
-# Handle www subdomain (if not handled at DNS level)
+# Handle www subdomain - Force redirect to non-www
 https://www.kindahardgolf.app/*    https://kindahardgolf.app/:splat    301!
 http://www.kindahardgolf.app/*     https://kindahardgolf.app/:splat    301!
 http://kindahardgolf.app/*         https://kindahardgolf.app/:splat    301!
+
+# Also handle root domain redirects
+https://www.kindahardgolf.app      https://kindahardgolf.app           301!
+http://www.kindahardgolf.app       https://kindahardgolf.app           301!
 
 # API endpoints (future use)
 /api/*             https://api.kindahardgolf.app/:splat    200
