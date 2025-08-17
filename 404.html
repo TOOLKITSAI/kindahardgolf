@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Ball Out of Bounds | Kinda Hard Golf</title>
+    <meta name="description" content="Oops! Your ball went out of bounds. Let's get you back on the course!">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: #3085D4;
+        }
+        
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Quicksand', sans-serif;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .error-golf-ball {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            margin: 2rem auto;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: ballBounce 1.5s ease-in-out infinite;
+        }
+        
+        .error-golf-ball::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-image: 
+                radial-gradient(circle at 30% 30%, #ddd 3px, transparent 3px),
+                radial-gradient(circle at 70% 30%, #ddd 3px, transparent 3px),
+                radial-gradient(circle at 50% 50%, #ddd 3px, transparent 3px),
+                radial-gradient(circle at 30% 70%, #ddd 3px, transparent 3px),
+                radial-gradient(circle at 70% 70%, #ddd 3px, transparent 3px);
+            background-size: 50% 50%;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .error-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+            max-width: 600px;
+        }
+        
+        .error-link {
+            padding: 1rem;
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .error-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            color: var(--primary-color);
+        }
+        
+        .error-link-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .error-link-title {
+            font-weight: 600;
+        }
+        
+        .grass-pattern {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, #16A34A 0%, transparent 100%);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        @keyframes ballBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-30px) rotate(-10deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-code animate-fadeInDown">404</div>
+            <div class="error-golf-ball"></div>
+            <h1 class="error-title animate-fadeInUp">Ball Out of Bounds!</h1>
+            <p class="error-message animate-fadeInUp animate-delay-1">
+                Looks like your shot went way off course! The page you're looking for has rolled into the rough and we can't seem to find it.
+            </p>
+            
+            <div class="error-actions animate-fadeInUp animate-delay-2">
+                <a href="./index.html" class="btn btn-primary btn-large">
+                    <span>🏌️‍♂️</span> Take a Mulligan (Go Home)
+                </a>
+                <button onclick="history.back()" class="btn btn-secondary">
+                    <span>↩️</span> Previous Hole
+                </button>
+            </div>
+            
+            <div class="error-links animate-fadeInUp animate-delay-3">
+                <a href="./guide.html" class="error-link">
+                    <div class="error-link-icon">📖</div>
+                    <div class="error-link-title">Game Guide</div>
+                    <small>Learn how to play</small>
+                </a>
+                <a href="./daily-tips.html" class="error-link">
+                    <div class="error-link-icon">💡</div>
+                    <div class="error-link-title">Daily Tips</div>
+                    <small>Improve your game</small>
+                </a>
+                <a href="./about.html" class="error-link">
+                    <div class="error-link-icon">ℹ️</div>
+                    <div class="error-link-title">About</div>
+                    <small>Our story</small>
+                </a>
+            </div>
+        </div>
+        
+        <div class="grass-pattern"></div>
+    </div>
+    
+    <script>
+        // Fun easter egg: Make the golf ball clickable
+        document.querySelector('.error-golf-ball').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'spin 0.5s ease-out, ballBounce 1.5s ease-in-out infinite';
+            }, 10);
+        });
+        
+        // Track 404 errors
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404_error', {
+                page_path: window.location.pathname
+            });
+        }
+    </script>
+</body>
+</html>

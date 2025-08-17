@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changes Preview - Kinda Hard Golf</title>
+    <style>
+        body {
+            font-family: 'Quicksand', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(180deg, #87CEEB 0%, #B6E5FF 100%);
+            min-height: 100vh;
+        }
+        .preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2C3E50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .color-box {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .color-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .color-code {
+            font-family: monospace;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .section {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #2C3E50;
+        }
+        .old {
+            background: #F5F5F5;
+        }
+        .new {
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .link-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .link-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="success-message">
+            ✅ Color scheme successfully updated to match the game website!
+        </div>
+        
+        <h1>🎨 Kinda Hard Golf - New Color Scheme</h1>
+        
+        <div class="before-after">
+            <div class="section old">
+                <h2>❌ Before (Old Colors)</h2>
+                <ul>
+                    <li><strong>Background:</strong> Light gray to light green (#F5F5F5 → #E8F5E9)</li>
+                    <li><strong>CTA Section:</strong> Green gradient</li>
+                    <li><strong>Footer:</strong> Dark blue-gray (#2C3E50)</li>
+                </ul>
+            </div>
+            <div class="section new">
+                <h2>✅ After (New Colors)</h2>
+                <ul>
+                    <li><strong>Background:</strong> Sky blue gradient (#87CEEB → #B6E5FF)</li>
+                    <li><strong>CTA Section:</strong> Golf green (#4CAF50 → #45a049)</li>
+                    <li><strong>Footer:</strong> Dark green (#388E3C → #2E7D32)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: #2C3E50; margin-bottom: 20px;">Color Palette Preview</h2>
+        
+        <div class="color-grid">
+            <div class="color-box" style="background: linear-gradient(180deg, #87CEEB 0%, #B6E5FF 100%);">
+                <div class="color-label">Main Background</div>
+                <div class="color-code">#87CEEB → #B6E5FF</div>
+                <div style="font-size: 12px; margin-top: 5px;">Sky Blue (like game)</div>
+            </div>
+            
+            <div class="color-box" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+                <div class="color-label">CTA Section</div>
+                <div class="color-code">#4CAF50 → #45a049</div>
+                <div style="font-size: 12px; margin-top: 5px;">Golf Green</div>
+            </div>
+            
+            <div class="color-box" style="background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);">
+                <div class="color-label">Footer</div>
+                <div class="color-code">#388E3C → #2E7D32</div>
+                <div style="font-size: 12px; margin-top: 5px;">Dark Golf Green</div>
+            </div>
+            
+            <div class="color-box" style="background: rgba(255, 255, 255, 0.95); color: #2C3E50; border: 2px solid #E0E0E0;">
+                <div class="color-label">Cards & Features</div>
+                <div class="color-code">White with transparency</div>
+                <div style="font-size: 12px; margin-top: 5px;">Clean contrast</div>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: #2C3E50; margin: 30px 0 20px;">🎯 What Changed?</h2>
+        
+        <div class="section" style="background: white;">
+            <ul style="color: #2C3E50; line-height: 1.8;">
+                <li>✅ <strong>Main background:</strong> Changed from gray to sky blue (#87CEEB) to match the game's sky theme</li>
+                <li>✅ <strong>CTA section:</strong> Updated to golf green gradient to match the game's grass/course colors</li>
+                <li>✅ <strong>Footer:</strong> Changed from dark blue to dark green for consistency with golf theme</li>
+                <li>✅ <strong>Features section:</strong> Added semi-transparent white background for better contrast</li>
+                <li>✅ <strong>Cards & buttons:</strong> Updated to white backgrounds to stand out on blue</li>
+                <li>✅ <strong>Hero patterns:</strong> Changed from green to white circles for subtle decoration</li>
+            </ul>
+        </div>
+        
+        <h2 style="text-align: center; color: #2C3E50; margin: 30px 0 20px;">🚀 Preview the Changes</h2>
+        
+        <div class="links">
+            <a href="./index.html" class="link-btn">View Homepage</a>
+            <a href="./guide.html" class="link-btn">View Guide</a>
+            <a href="./leaderboard.html" class="link-btn">View Leaderboard</a>
+            <a href="./about.html" class="link-btn">View About</a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: rgba(76, 175, 80, 0.1); border-radius: 8px; text-align: center;">
+            <p style="color: #2C3E50; margin: 0;">
+                <strong>🎨 Design Philosophy:</strong><br>
+                The new color scheme creates visual harmony between your website and the embedded game.<br>
+                The sky blue background evokes the outdoor golf course atmosphere,<br>
+                while the green sections represent the golf course grass.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

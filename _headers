@@ -1,0 +1,51 @@
+/*
+  # Security Headers
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  
+  # Allow iframe for the game and YouTube videos
+  Content-Security-Policy: frame-src 'self' https://kindahardgolf.com https://*.kindahardgolf.com https://www.youtube.com https://youtube.com; default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://kindahardgolf.com
+
+  # CORS Headers for API calls
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+
+# Cache static assets
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files - shorter cache
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Service Worker
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Favicon
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+# Security for specific paths
+/api/*
+  X-Robots-Tag: noindex
+  
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  X-Frame-Options: DENY

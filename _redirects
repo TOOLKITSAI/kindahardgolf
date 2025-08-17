@@ -1,0 +1,55 @@
+# URL Redirects for Cloudflare Pages
+
+# Redirect common variations to home
+/home              /                  301
+/play              /                  301
+/game              /                  301
+/index.html        /                  301
+
+# Redirect old URLs (if any)
+/how-to-play       /guide.html        301
+/tutorial          /guide.html        301
+/help              /guide.html        301
+/instructions      /guide.html        301
+
+# Leaderboard variations
+/scores            /leaderboard.html  301
+/highscores        /leaderboard.html  301
+/rankings          /leaderboard.html  301
+/rank              /leaderboard.html  301
+
+# About variations  
+/story             /about.html        301
+/info              /about.html        301
+/contact           /about.html        301
+
+# Tips variations
+/tips              /daily-tips.html   301
+/hints             /daily-tips.html   301
+/strategy          /daily-tips.html   301
+/strategies        /daily-tips.html   301
+
+# Handle www subdomain (if not handled at DNS level)
+https://www.kindahardgolf.app/*    https://kindahardgolf.app/:splat    301!
+http://www.kindahardgolf.app/*     https://kindahardgolf.app/:splat    301!
+http://kindahardgolf.app/*         https://kindahardgolf.app/:splat    301!
+
+# API endpoints (future use)
+/api/*             https://api.kindahardgolf.app/:splat    200
+
+# Social sharing redirects
+/share/*           /                  302
+/s/*               /                  302
+
+# Language redirects (future international versions)
+/en/*              /:splat            301
+/en                /                  301
+
+# Handle trailing slashes
+/guide/            /guide.html        301
+/leaderboard/      /leaderboard.html  301
+/about/            /about.html        301
+/daily-tips/       /daily-tips.html   301
+
+# 404 fallback (must be last)
+/*                 /404.html          404

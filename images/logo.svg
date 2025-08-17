@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Golf Ball -->
+  <circle cx="30" cy="30" r="20" fill="#ffffff" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- Golf Ball Dimples -->
+  <circle cx="25" cy="25" r="2" fill="#e0e0e0"/>
+  <circle cx="35" cy="25" r="2" fill="#e0e0e0"/>
+  <circle cx="30" cy="30" r="2" fill="#e0e0e0"/>
+  <circle cx="25" cy="35" r="2" fill="#e0e0e0"/>
+  <circle cx="35" cy="35" r="2" fill="#e0e0e0"/>
+  
+  <!-- Text: KHG -->
+  <text x="60" y="40" font-family="Quicksand, sans-serif" font-size="28" font-weight="700" fill="#4CAF50">
+    KHG
+  </text>
+  
+  <!-- Golf Flag -->
+  <line x1="170" y1="15" x2="170" y2="45" stroke="#2E7D32" stroke-width="2"/>
+  <path d="M 170 15 L 190 20 L 170 25 Z" fill="#FF6B6B"/>
+</svg>

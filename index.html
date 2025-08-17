@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinda Hard Golf - Daily Physics Golf Puzzle | Simple to Learn, Kinda Hard to Master</title>
+    <meta name="description" content="Play Kinda Hard Golf - the daily physics golf puzzle that's simple to learn but kinda hard to master. Join 50K+ players! Drag to aim, release to shoot. New level daily. 100% free browser game by James O'Halloran.">
+    <meta name="keywords" content="kinda hard golf, daily physics golf puzzle, James O'Halloran, Mighty Pebble Games, simple to learn kinda hard to master, productive failure game, exaggerated physics golf, drag to aim golf game">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kindahardgolf.app/">
+    <meta property="og:title" content="Kinda Hard Golf - Daily Golf Challenge">
+    <meta property="og:description" content="Master the physics, conquer the course! Play a new challenging level every day.">
+    <meta property="og:image" content="https://kindahardgolf.app/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kindahardgolf.app/">
+    <meta property="twitter:title" content="Kinda Hard Golf - Daily Golf Challenge">
+    <meta property="twitter:description" content="Master the physics, conquer the course! Play a new challenging level every day.">
+    <meta property="twitter:image" content="https://kindahardgolf.app/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    
+    <!-- Critical CSS (Inline for performance) -->
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --primary-light: #81C784;
+            --primary-dark: #2E7D32;
+            --accent-color: #FF6B6B;
+            --bg-color: #3085D4;
+            --bg-main: #3085D4;
+            --bg-footer: #16A34A;
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #3085D4;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .hero-stats {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-top: 1rem;
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Kinda Hard Golf",
+        "description": "Daily physics golf puzzle game that's simple to learn but kinda hard to master. Join 50K+ players worldwide!",
+        "url": "https://kindahardgolf.app",
+        "genre": ["Puzzle", "Physics", "Golf", "Casual"],
+        "playMode": "SinglePlayer",
+        "applicationCategory": "BrowserGame",
+        "operatingSystem": "Any",
+        "creator": {
+            "@type": "Person",
+            "name": "James O'Halloran",
+            "affiliation": "Mighty Pebble Games"
+        },
+        "gamePlatform": "Web Browser",
+        "numberOfPlayers": {
+            "@type": "QuantitativeValue",
+            "value": 1
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "50000"
+        }
+    }
+    </script>
+    
+    <!-- Additional Styles for Guide Sections -->
+    <style>
+        .guide-sections {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .guide-sections .info-card {
+            margin-bottom: 0;
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .scoring-table th,
+        .scoring-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .scoring-table th {
+            background: var(--primary-light);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .scoring-table tr:hover {
+            background: rgba(76, 175, 80, 0.05);
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tip {
+            padding: 1rem;
+            background: #F8FCF8;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .mode {
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(129, 199, 132, 0.05) 100%);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .faq details {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #F8FCF8;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .faq summary {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .faq details[open] summary {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* YouTube Video Styles */
+        .video-section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .video-grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .video-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Normal video aspect ratio */
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .video-wrapper:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-caption {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--bg-white);
+        }
+        
+        .mt-2 {
+            margin-top: 1rem;
+        }
+        
+        /* Consistent container width for all sections */
+        .hero .container,
+        .features .container,
+        .reviews .container,
+        .cta .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Two Cards Grid */
+        .two-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .two-cards-grid .info-card {
+            margin-bottom: 0;
+        }
+        
+        /* Reviews Section Styles */
+        .reviews {
+            padding: 4rem 0;
+            background: #3085D4;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        
+        .review-stars {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .review-author {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .two-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .video-grid-two {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .video-grid-two {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="./index.html" class="logo">
+                    <span class="logo-icon">⛳</span>
+                    <span class="logo-text">Kinda Hard Golf</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Kinda Hard Golf</h1>
+                <p class="hero-subtitle">Simple to learn, kinda hard to master - Daily physics golf puzzle!</p>
+                <p class="hero-stats">Join 50,000+ daily players from 195 countries 🌍</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Game Section -->
+    <section class="game-section">
+        <div class="container">
+            <div class="game-wrapper">
+                <!-- Game iframe Container -->
+                <div class="game-container" id="gameContainer">
+                    <div class="loading" id="gameLoading">
+                        <div class="spinner"></div>
+                        <p>Loading today's challenge...</p>
+                    </div>
+                    <iframe 
+                        id="gameFrame"
+                        src="https://kindahardgolf.com" 
+                        title="Kinda Hard Golf Game"
+                        width="100%" 
+                        height="600"
+                        frameborder="0"
+                        allowfullscreen
+                        loading="eager"
+                        class="game-iframe hidden">
+                    </iframe>
+                </div>
+                
+                <!-- Game Controls -->
+                <div class="game-controls">
+                    <button class="btn btn-secondary" id="refreshBtn" aria-label="Refresh game">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                        </svg>
+                        Reset
+                    </button>
+                    <button class="btn btn-secondary" id="fullscreenBtn" aria-label="Toggle fullscreen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
+                        </svg>
+                        Fullscreen
+                    </button>
+                    <button class="btn btn-primary" id="shareBtn" aria-label="Share score">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/>
+                        </svg>
+                        Share Score
+                    </button>
+                </div>
+                
+                <!-- Guide Content Sections -->
+                <div class="guide-sections">
+                    <!-- Quick Start & Controls Cards -->
+                    <div class="two-cards-grid" id="quick-start">
+                        <!-- Quick Start Card -->
+                        <div class="info-card">
+                            <h2>🚀 Quick Start</h2>
+                            <ol>
+                                <li><strong>Drag the ball</strong> to aim - the longer you drag, the more power</li>
+                                <li><strong>Release to shoot</strong> - watch the exaggerated physics take over!</li>
+                                <li><strong>Hit checkpoint flags</strong> to save progress (or try Kinda Infuriating mode without them!)</li>
+                                <li><strong>Reach the hole</strong> at the top in as few strokes as possible</li>
+                            </ol>
+                            <p class="mt-2"><strong>Remember:</strong> Every missed shot teaches you about physics, angles, and power - that's "productive failure" in action!</p>
+                        </div>
+                        
+                        <!-- Controls Card -->
+                        <div class="info-card">
+                            <h2>🎮 Controls</h2>
+                            <div class="control-item">
+                                <h3>Mouse/Touch</h3>
+                                <ul>
+                                    <li><strong>Click/Tap & Hold:</strong> Grab the ball</li>
+                                    <li><strong>Drag Backwards:</strong> Aim opposite to launch direction</li>
+                                    <li><strong>Release:</strong> Launch upward</li>
+                                    <li><strong>F5/Refresh:</strong> Restart level</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pro Tips -->
+                    <div class="info-card" id="pro-tips">
+                        <h2>💡 Pro Tips</h2>
+                        <div class="tips-grid">
+                            <div class="tip">
+                                <h3>1. Master the Power</h3>
+                                <p>Don't always use full power! Sometimes a gentle tap is all you need. Practice controlling your shot strength.</p>
+                            </div>
+                            <div class="tip">
+                                <h3>2. Use the Walls</h3>
+                                <p>Bouncing off walls can help you reach tricky spots. Think like a pool player!</p>
+                            </div>
+                            <div class="tip">
+                                <h3>3. Plan Your Route</h3>
+                                <p>Before shooting, visualize your climbing path. Look for platforms and ledges to reach the top.</p>
+                            </div>
+                            <div class="tip">
+                                <h3>4. Prioritize Checkpoint Flags</h3>
+                                <p>Land on checkpoint flags early! If you fall, you'll respawn at the last flag instead of the bottom.</p>
+                            </div>
+                            <div class="tip">
+                                <h3>5. Learn from Mistakes</h3>
+                                <p>Each failed shot teaches you about the physics. Pay attention to how the ball moves!</p>
+                            </div>
+                            <div class="tip">
+                                <h3>6. Don't Miss a Day</h3>
+                                <p>Like Wordle, there's one new level daily. Miss it and it's gone forever - play every day!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Philosophy -->
+                    <div class="info-card">
+                        <h2>🧠 The Kinda Hard Philosophy</h2>
+                        <p>Created by James O'Halloran (a self-proclaimed terrible golfer), Kinda Hard Golf embraces <strong>"productive failure"</strong> - where every missed shot teaches you something new.</p>
+                        <ul>
+                            <li><strong>Exaggerated Physics:</strong> The ball won't always cooperate - embrace the chaos!</li>
+                            <li><strong>Perfect Difficulty:</strong> Hard enough to engage, achievable enough to satisfy</li>
+                            <li><strong>Daily Scarcity:</strong> Like Wordle, miss today's level and it's gone forever</li>
+                            <li><strong>Community Sync:</strong> Everyone plays the same level - compare and compete!</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Game Modes -->
+                    <div class="info-card">
+                        <h2>🎯 Game Modes</h2>
+                        <div class="mode-grid">
+                            <div class="mode">
+                                <h3>Daily Challenge</h3>
+                                <p>One new vertical course every 24 hours. Everyone climbs the same level - share your score!</p>
+                            </div>
+                            <div class="mode">
+                                <h3>Kinda Infuriating Mode</h3>
+                                <p>For masochists only! Removes all checkpoint flags - one mistake and you're back at the bottom!</p>
+                            </div>
+                            <div class="mode">
+                                <h3>Share Your Score</h3>
+                                <p>After completing the daily challenge, share a spoiler-free summary like Wordle!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Techniques -->
+                    <div class="info-card">
+                        <h2>🏆 Advanced Techniques</h2>
+                        <ul>
+                            <li><strong>Wall Bounces:</strong> Use walls to reach higher platforms and navigate tight spaces</li>
+                            <li><strong>Power Control:</strong> Master the drag distance for precise vertical jumps</li>
+                            <li><strong>Checkpoint Strategy:</strong> Always aim for flags first before attempting risky shots</li>
+                            <li><strong>Platform Hopping:</strong> Chain shots between platforms to climb efficiently</li>
+                            <li><strong>Fall Recovery:</strong> Learn to recover from falls by landing on lower checkpoints</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- FAQ -->
+                    <div class="info-card">
+                        <h2>❓ Frequently Asked Questions</h2>
+                        <div class="faq">
+                            <details>
+                                <summary>When does the daily level reset?</summary>
+                                <p>New levels appear every day at midnight UTC (7 PM EST / 4 PM PST).</p>
+                            </details>
+                            <details>
+                                <summary>Can I replay old levels?</summary>
+                                <p>No, once a daily level is gone, it's gone forever - just like Wordle! Don't miss your chance.</p>
+                            </details>
+                            <details>
+                                <summary>How is par determined?</summary>
+                                <p>Par is set by James O'Halloran based on the optimal climbing path to the top.</p>
+                            </details>
+                            <details>
+                                <summary>Do I need to create an account?</summary>
+                                <p>No! The game is 100% free with no registration required. Scores are stored locally.</p>
+                            </details>
+                            <details>
+                                <summary>Can I play on mobile?</summary>
+                                <p>Yes! The game works perfectly on any device with a modern web browser.</p>
+                            </details>
+                            <details>
+                                <summary>How do I share my score?</summary>
+                                <p>Click the "Share Score" button after completing a level to share on social media.</p>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Tutorial -->
+                    <div class="info-card">
+                        <h2>📹 Video Tutorial</h2>
+                        <p class="video-section-subtitle">Watch top strategies and daily challenge solutions from expert players</p>
+                        <div class="video-grid-two">
+                            <!-- Video 1 -->
+                            <div class="video-item">
+                                <div class="video-wrapper">
+                                    <iframe 
+                                        src="https://www.youtube.com/embed/B20nCy01dsk"
+                                        title="Kinda Hard Golf - Pro Strategy #1"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen
+                                        loading="lazy">
+                                    </iframe>
+                                </div>
+                                <p class="video-caption">Daily Challenge Solution</p>
+                            </div>
+                            
+                            <!-- Video 2 -->
+                            <div class="video-item">
+                                <div class="video-wrapper">
+                                    <iframe 
+                                        src="https://www.youtube.com/embed/Nqm2Q1UfF5s"
+                                        title="Kinda Hard Golf - Pro Strategy #2"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen
+                                        loading="lazy">
+                                    </iframe>
+                                </div>
+                                <p class="video-caption">Advanced Techniques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Players Love Kinda Hard Golf</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚛️</div>
+                    <h3>Daily Physics Puzzle</h3>
+                    <p>Experience exaggerated physics that make every shot unpredictable and fun!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Simple Controls, Deep Strategy</h3>
+                    <p>Just drag to aim and release to shoot - but mastering the physics takes skill!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Productive Failure</h3>
+                    <p>Every missed shot teaches you something new about physics, angles, and power!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Competition</h3>
+                    <p>Join 50K+ daily players from 195 countries - everyone plays the same level!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚩</div>
+                    <h3>Checkpoint System</h3>
+                    <p>Hit flags to save progress - or try Kinda Infuriating mode without them!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>100% Free Forever</h3>
+                    <p>No downloads, no sign-ups, no ads - just pure physics golf fun in your browser!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">What Players Are Saying</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"It's kinda hard... but that's the point! Love the vertical platforming twist on golf. Can't miss a day!"</p>
+                    <div class="review-author">- Sarah M.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Checkpoint flags are a lifesaver! The climb to the top is challenging but fair. James O'Halloran nailed it!"</p>
+                    <div class="review-author">- Mike T.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Addicted! Part of the 50K+ daily players now. The physics are hilariously unpredictable but that's what makes it fun. Productive failure at its finest!"</p>
+                    <div class="review-author">- Jordan W.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Drag backwards to go up - genius! The vertical courses are creative. One level per day keeps me coming back."</p>
+                    <div class="review-author">- Jamie L.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Perfect 5-minute break game. Hit those checkpoint flags or you'll regret it! Genuinely 'kinda hard' as advertised."</p>
+                    <div class="review-author">- Chris P.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Wall bounces and platform hopping feel great! No reset button yet but F5 works. Free and fun - what more could you want?"</p>
+                    <div class="review-author">- Taylor R.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Climb Today's Course?</h2>
+                <p>Join the community tackling today's vertical golf challenge!</p>
+                <button class="btn btn-large btn-accent" onclick="document.getElementById('gameContainer').scrollIntoView({behavior: 'smooth'})">
+                    Play Now - It's Free!
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">⛳</span>
+                        <span class="logo-text">Kinda Hard Golf</span>
+                    </div>
+                    <p class="footer-description">Vertical golf platformer by James O'Halloran. Climb to the top with checkpoint flags. New level daily!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Game</h4>
+                    <ul>
+                        <li><a href="./index.html">Play Now</a></li>
+                        <li><a href="#quick-start">How to Play</a></li>
+                        <li><a href="#pro-tips">Pro Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./privacy.html">Privacy</a></li>
+                        <li><a href="./terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Play Daily!</h4>
+                    <p>New challenging level every day at midnight UTC</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/search?q=%23KindaHardGolf" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+                        <a href="https://discord.com/invite/ZcBf2FhcVH" target="_blank" rel="noopener" aria-label="Discord">💬</a>
+                        <a href="https://www.reddit.com/search/?q=kinda%20hard%20golf" target="_blank" rel="noopener" aria-label="Reddit">📱</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kinda Hard Golf. Made with ⛳ for golf lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3>Share Your Score!</h3>
+            <div class="score-input-section">
+                <label for="scoreInput">Enter your score:</label>
+                <input type="number" id="scoreInput" min="1" max="99" value="3" class="score-input">
+            </div>
+            <div class="share-text" id="shareText">
+                I scored <span id="scoreDisplay">3</span> on today's Kinda Hard Golf! ⛳<br>
+                Can you beat my score?<br>
+                Play now: kindahardgolf.app<br>
+                #KindaHardGolf #DailyGolf
+            </div>
+            <div class="share-buttons">
+                <button class="btn btn-secondary" id="copyBtn">📋 Copy</button>
+                <button class="btn btn-secondary" id="xShare">𝕏 Share on X</button>
+                <button class="btn btn-secondary" id="facebookShare">📘 Facebook</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/game-frame.js" defer></script>
+    <script src="./js/share.js" defer></script>
+</body>
+</html>
