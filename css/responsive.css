@@ -75,14 +75,14 @@
     }
     
     .game-iframe {
-        height: 50vh; /* 50% viewport height for tablets */
-        max-height: none; /* Remove height limit to show full game */
+        height: 50vh !important; /* 50% viewport height for tablets */
+        max-height: none !important; /* Remove height limit to show full game */
     }
     
     /* Allow scrolling within game container on mobile */
     .game-container {
-        max-height: 90vh;
-        overflow-y: auto;
+        max-height: none !important;
+        overflow-y: visible !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
     }
@@ -188,23 +188,23 @@
     }
     
     .game-iframe {
-        height: 50vh; /* 50% viewport height for mobile to show buttons */
-        max-height: none; /* Remove limit to ensure buttons are visible */
-        min-height: 300px; /* Minimum height for game controls */
+        height: 50vh !important; /* 50% viewport height for mobile to show buttons */
+        max-height: none !important; /* Remove limit to ensure buttons are visible */
+        min-height: 300px !important; /* Minimum height for game controls */
     }
     
     /* Allow scrolling for game content */
     .game-container {
-        max-height: 85vh;
-        overflow-y: auto;
+        max-height: none !important;
+        overflow-y: visible !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
         position: relative;
     }
     
     .loading {
-        min-height: 50vh;
-        max-height: none;
+        min-height: 50vh !important;
+        max-height: none !important;
     }
     
     /* Buttons */
@@ -308,14 +308,14 @@
     }
     
     .game-iframe {
-        height: 50vh; /* 50% viewport height for small screens */
-        max-height: none; /* Remove viewport limit */
-        min-height: 300px; /* Minimum height for game functionality */
+        height: 50vh !important; /* 50% viewport height for small screens */
+        max-height: none !important; /* Remove viewport limit */
+        min-height: 300px !important; /* Minimum height for game functionality */
     }
     
     .game-container {
-        max-height: 80vh;
-        overflow-y: auto;
+        max-height: none !important;
+        overflow-y: visible !important;
         -webkit-overflow-scrolling: touch;
     }
     
@@ -339,14 +339,14 @@
     }
     
     .game-iframe {
-        height: 50vh; /* 50% viewport height for landscape mode */
-        max-height: none; /* Allow full height in landscape */
-        min-height: 300px;
+        height: 50vh !important; /* 50% viewport height for landscape mode */
+        max-height: none !important; /* Allow full height in landscape */
+        min-height: 300px !important;
     }
     
     .game-container {
-        max-height: 95vh;
-        overflow-y: auto;
+        max-height: none !important;
+        overflow-y: visible !important;
         -webkit-overflow-scrolling: touch;
     }
     
